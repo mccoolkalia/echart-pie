@@ -1,5 +1,5 @@
 import './index.css';
-import echarts from './echarts.min.js';
+import echarts from '../node_modules/echarts/dist/echarts.min.js';
 
 /**
  * Global controller object is described on Zoomdata knowledge base
