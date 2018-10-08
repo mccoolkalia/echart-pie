@@ -16,6 +16,7 @@ chartContainer.classList.add('chart-container');
 controller.element.appendChild(chartContainer);
 const groupAccessor = controller.dataAccessors['Group By'];
 const metricAccessor = controller.dataAccessors['Metric'];
+var myChart = echarts.init(chartContainer);
 
 
 
@@ -39,7 +40,6 @@ controller.createAxisLabel({
 
 function getChartData(data) {
 
-var myChart = echarts.init(chartContainer);
 var groupAccessorName = controller.dataAccessors['Group By'].getLabel();
 var dataArray = data.map(function(d) {
   return {
@@ -119,4 +119,8 @@ controller.update = data => {
 
 getChartData(data);
 
+};
+controller.resize = function(width, height, size) {
+    // Called when the widget is resized
+    myChart.resize();
 };
